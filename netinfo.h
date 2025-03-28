@@ -1,6 +1,8 @@
 #ifndef NETINFO_H
 #define NETINFO_H
 
+#define MAX(a,b) (((a)>(b))?(a):(b))
+
 typedef struct
 {
         unsigned char ifname[10];
@@ -15,6 +17,6 @@ int init_interfaces(struct_netif *ni);
 void print_netif(const struct_netif *ifs, const int ifslen);
 int netif_search(const unsigned char *clientip, const struct_netif *ifs, const int ifslen);
 
-int model_name(char *panel);
+int model_name(char *panel, const int slen);
 
 #endif // NETINFO_H

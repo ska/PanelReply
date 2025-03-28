@@ -139,7 +139,7 @@ int init_interfaces(struct_netif *ni)
 
 
 #define MAXCHAR 100
-int model_name(char *panel)
+int model_name(char *panel, const int slen)
 {
 	FILE *fp;
 	char str[MAXCHAR];
@@ -151,11 +151,7 @@ int model_name(char *panel)
 	/* Read first line */
 	fgets(str, MAXCHAR, fp);
 
-	if(strstr(str, "uSom03") != NULL) {
-		strncpy(panel, "KuS03", strlen("KuS03"));
-	} else if(strstr(str, "NS02") != NULL) {
-		strncpy(panel, "KnS02", strlen("KnS02"));
-	}
+	strncpy(panel, str, MAX(slen, strlen(str)) );
 
 	fclose(fp);
 	return 0;

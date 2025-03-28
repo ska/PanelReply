@@ -125,9 +125,10 @@ int main(int argc, char **argv)
 								ifs[found].mask[2], \
 								ifs[found].mask[3]);
 
-		model_name(sfi.moduleName);;
+		model_name(sfi.moduleName, sizeof(sfi.moduleName));
+
 		strncpy(sfi.RemoteConfPort,	"####", strlen("####"));
-		strcpy(sfi.manufactureCode, "**");
+		strcpy(sfi.manufactureCode, "*");
 		strcpy(sfi.hostName,		hostname);
 		memcpy(buf, &sfi, sizeof(struct_selfinfo));
 
